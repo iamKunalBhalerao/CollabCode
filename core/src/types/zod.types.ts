@@ -11,12 +11,14 @@ export const signInZodSchema = z.object({
   password: z.string().min(3, "Password must be bigger than 3 letters!"),
 });
 
-export const CRUDRoomZodSchema = z.object({
-  name: z.string().min(3, "Name must be bigger than 3 letters!"),
+export const createProjectZodSchema = z.object({
+  title: z.string().min(3, "Title must be bigger than 3 letters!"),
+  description: z
+    .string()
+    .min(10, "Description must be bigger than 10 letters!"),
 });
 
-export const updateRoomZodSchema = z.object({
-  name: z.string().min(3, "Name must be bigger than 3 letters!"),
-  newName: z.string().min(3, "Name must be bigger than 3 letters!"),
+export const snapShotZodSchema = z.object({
+  fsnodeId: z.string().min(1, "fsnodeId is required!"),
+  data: z.string().min(1, "Data is required!"), // Array of Base64 strings
 });
-

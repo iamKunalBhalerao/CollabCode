@@ -45,9 +45,13 @@ app.get("/config", (req: Request, res: Response) => {
 
 // Importing Routes
 import authRouter from "./routes/auth.routes";
+import projectRouter from "./routes/project.routes";
+import snapShotRouter from "./routes/snapshot.routes";
 
 // Using Routes
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/project", projectRouter);
+app.use("/api/v1/snapshot", snapShotRouter);
 
 app.use(globalErrorHandler);
 

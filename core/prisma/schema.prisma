@@ -31,6 +31,38 @@ model Project {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  fsnodes   FSNode[]
+}
+
+model FSNode {
+  id   String  @id @default(uuid())
+  name String
+  type FSNType
+
+  parentId String?
+  parent   FSNode?  @relation("FSNodeToParent", fields: [parentId], references: [id], onDelete: Cascade)
+  children FSNode[] @relation("FSNodeToParent")
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id])
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  snapshots Snapshot[]
+
+  @@unique([projectId, parentId, name])
+}
+
+model Snapshot {
+  id       String @id @default(uuid())
+  fsnodeId String
+  data     Bytes?
+
+  fsnode FSNode @relation(fields: [fsnodeId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@index([fsnodeId, createdAt])
 }
 
 model Collaboration {
@@ -52,4 +84,9 @@ enum Role {
   VIEWER
   EDITOR
   ADMIN
+}
+
+enum FSNType {
+  FILE
+  FOLDER
 }

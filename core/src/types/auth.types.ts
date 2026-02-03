@@ -31,11 +31,5 @@ export interface YjsUpdatePayload {
   state: string; // Base64 encoded Uint8Array
 }
 
-export interface SnapShotSave {
-  roomId: string;
-  state: string; // Array of Base64 strings
-}
-
 export type SignUpRequest = Request<{}, {}, SignUp>;
 export type SignInRequest = Request<{}, {}, SignIn>;
-export type SnapShotSaveRequest = Request<{}, {}, SnapShotSave>;
