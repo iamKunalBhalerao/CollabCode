@@ -83,7 +83,7 @@ model Collaboration {
 enum Role {
   VIEWER
   EDITOR
-  ADMIN
+  OWNER
 }
 
 enum FSNType {

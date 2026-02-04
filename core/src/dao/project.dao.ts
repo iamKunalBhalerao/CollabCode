@@ -49,11 +49,23 @@ export const deleteProject = async (projectId: string, ownerId: string) => {
   });
 };
 
-
 export const getProjectsByOwner = async (ownerId: string) => {
   return prisma.project.findMany({
     where: {
       ownerId: ownerId,
+    },
+  });
+};
+
+export const createCollaborationForOwner = async (
+  projectId: string,
+  ownerId: string,
+) => {
+  return prisma.collaboration.create({
+    data: {
+      projectId: projectId,
+      userId: ownerId,
+      role: "OWNER",
     },
   });
 };

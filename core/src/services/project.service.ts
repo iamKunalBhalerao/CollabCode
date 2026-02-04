@@ -1,4 +1,5 @@
 import {
+  createCollaborationForOwner,
   createProject,
   deleteProject,
   getProject,
@@ -17,13 +18,14 @@ export const createProjectService = async (
   ownerId: string,
 ) => {
   const parsedData = createProjectZodSchema.safeParse(data);
-  if (!parsedData.success) {
-    throw new BadRequestError("Invalid Credentials!");
-  }
+  if (!parsedData.success) throw new BadRequestError("Invalid Credentials!");
   const { title, description } = parsedData.data;
 
   const project = await createProject({ title, description }, ownerId);
   if (!project) throw new BadRequestError("Failed to create project!");
+
+  const projectId = project.id as string;
+  await createCollaborationForOwner(projectId, ownerId);
 
   return project;
 };
@@ -65,7 +67,6 @@ export const deleteProjectService = async (
 
   return isDeleted;
 };
-
 
 export const getMyProjectsService = async (ownerId: string) => {
   const projects = await getProjectsByOwner(ownerId);
