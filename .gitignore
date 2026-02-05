@@ -1,0 +1,13 @@
+node_modules/
+vendor/
+dist/
+build/
+out/
+.idea/
+.vscode/
+.git/
+.cache/
+coverage/
+logs/
+tmp/
+temp/
