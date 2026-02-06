@@ -27,7 +27,7 @@ export default function CodeEditor({ projectId }: { projectId: string }) {
     const { ydoc, ytext } = createYjsDoc();
 
     const provider = new WebsocketProvider(
-      "ws://localhost:5000",
+      `${process.env.NEXT_PUBLIC_WS_URL}`,
       projectId,
       ydoc,
     );
