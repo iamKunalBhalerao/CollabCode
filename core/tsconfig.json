@@ -12,11 +12,11 @@
     // Module resolution
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": false,
     "verbatimModuleSyntax": true,
 
     // Compiler behavior
-    "noEmit": true,
+    "noEmit": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
 
