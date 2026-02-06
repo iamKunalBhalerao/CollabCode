@@ -3,9 +3,9 @@ import { CoreError } from "../errors/core.error";
 
 export const globalErrorHandler = (
   err: Error,
-  req: Request,
+  _req: Request,
   res: Response,
-  next: NextFunction,
+  _next: NextFunction,
 ) => {
   if (err instanceof CoreError) {
     return res.status(err.statusCode).json({

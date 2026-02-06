@@ -67,6 +67,7 @@ export const updateSnapShotController = async (
     res.status(200).json({
       success: true,
       message: "Snapshot Updated Successfully",
+      snapShot,
     });
   } catch (error) {
     next(error);

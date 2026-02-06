@@ -123,7 +123,7 @@ export const handleConnection = (
     }
   });
 
-  socket.on("close", (code, reason) => {
+  socket.on("close", (_code, _reason) => {
     if (currentRoom) {
       currentRoom.clients.delete(socket);
 

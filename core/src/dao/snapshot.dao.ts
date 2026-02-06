@@ -1,5 +1,4 @@
 import { prisma } from "../prisma";
-import type { SnapShotPayload } from "../types/snapshot.types";
 
 export const createSnapShot = async (snapShotData: {
   fsnodeId: string;

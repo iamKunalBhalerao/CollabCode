@@ -15,11 +15,11 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(CookieParser());
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (_req: Request, res: Response) => {
   res.send("CollabCoder API is running");
 });
 
-app.get("/health", (req: Request, res: Response) => {
+app.get("/health", (_req: Request, res: Response) => {
   try {
     // Add DB, Redis or queu checks here
     res.status(200).json({
@@ -35,7 +35,7 @@ app.get("/health", (req: Request, res: Response) => {
   }
 });
 
-app.get("/config", (req: Request, res: Response) => {
+app.get("/config", (_req: Request, res: Response) => {
   // All env variables available here with full type safety
   res.json({
     PORT: process.env.PORT,
