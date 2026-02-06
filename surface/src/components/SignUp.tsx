@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 export default function SignUp() {
   const router = useRouter();
   const [formData, setFormData] = useState<SignUpFormData>({
-    fullName: "",
+    name: "",
     email: "",
     password: "",
   });
@@ -89,7 +89,7 @@ export default function SignUp() {
                 placeholder="Kunal Bh"
                 required
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  setFormData({ ...formData, fullName: e.target.value })
+                  setFormData({ ...formData, name: e.target.value })
                 }
               />
             </div>
