@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
-  timeout: 1000,
+  baseURL: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1`,
+  timeout: 10000,
   headers: { "X-Custom-Header": "foobar" },
 });
 
