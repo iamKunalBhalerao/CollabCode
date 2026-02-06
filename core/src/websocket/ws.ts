@@ -110,8 +110,10 @@ export const handleConnection = (
           }
 
           // Broadcast updates to other clients
-          if (syncMessageType === syncProtocol.messageYjsSyncStep2 || 
-              syncMessageType === syncProtocol.messageYjsUpdate) {
+          if (
+            syncMessageType === syncProtocol.messageYjsSyncStep2 ||
+            syncMessageType === syncProtocol.messageYjsUpdate
+          ) {
             broadcast(currentRoom, data, socket);
           }
         }
