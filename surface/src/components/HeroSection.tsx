@@ -22,7 +22,7 @@ export default function HeroSection() {
       <main id={"home"} className="overflow-hidden">
         <section className="bg-background">
           <div className="relative py-32 md:pt-44">
-            <div className="mask-radial-from-45% mask-radial-to-75% mask-radial-at-top mask-radial-[75%_100%] mask-t-from-50% lg:aspect-9/4 absolute inset-0 aspect-square lg:top-24 dark:opacity-5">
+            <div className="mask-radial-from-45% mask-radial-to-75% mask-radial-at-top mask-radial-[75%_100%] mask-t-from-50% lg:aspect-9/4 absolute inset-0 aspect-square lg:top-24 dark:opacity-10">
               <Image
                 src="/hero-img.avif"
                 alt="hero background"
@@ -34,11 +34,12 @@ export default function HeroSection() {
             <div className="relative z-10 mx-auto w-full max-w-5xl px-6">
               <div className="mx-auto max-w-md text-center">
                 <h1 className="text-balance font-serif text-4xl font-medium sm:text-5xl">
-                  Ship faster. Integrate smarter.
+                  Code together. Ship faster.
                 </h1>
                 <p className="text-muted-foreground mt-4 text-balance">
-                  Veil is your all-in-one engine for adding seamless
-                  integrations to your app.
+                  CallCode is a real-time collaborative code editor built for
+                  teams. Write, edit, and review code together with instant
+                  sync, file structure support, and smooth performance.
                 </p>
 
                 <Button asChild className="mt-6 pr-1.5">
