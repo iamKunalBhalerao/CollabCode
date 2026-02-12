@@ -11,8 +11,11 @@ import { Label } from "@/components/ui/label";
 import { ChangeEvent, useState } from "react";
 import { SignInFormData } from "@/types/types";
 import { Button } from "@/components/ui/button";
+import { useAuthStore } from "@/store/auth.store";
 
 export default function SignIn() {
+
+    const login = useAuthStore((state) => state.login)
 
     const router = useRouter();
     const [formData, setFormData] = useState<SignInFormData>({
@@ -35,7 +38,7 @@ export default function SignIn() {
           throw new Error(data.message || "Failed to Signing In!");
         }
   
-        // login(data);
+        login(data);
   
         setLoading(false);
         router.push("/");

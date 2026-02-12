@@ -1,13 +1,11 @@
 import { type Request } from "express";
 
 export interface createProjectInterface {
-  title: string;
-  description?: string;
+  name: string;
 }
 
 export interface updateProjectInterface {
-  title?: string;
-  description?: string;
+  name?: string;
 }
 
 export type createProjectRequest = Request<{}, {}, createProjectInterface>;

@@ -1,25 +1,12 @@
-import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { ThemeButton } from "./ThemeButton";
 
 export default function JoinProject() {
   return (
-    <section className="bg-background grid min-h-screen grid-rows-[auto_1fr] px-4">
-      <div className="mx-auto w-full flex justify-between items-center max-w-7xl border-b py-3">
-        <Link
-          href="/"
-          aria-label="go home"
-          className="inline-block border-t-2 border-transparent py-3"
-        >
-          <Logo className="w-fit" />
-        </Link>
-        <ThemeButton />
-      </div>
-
+    <section className="relative z-10 grid grid-rows-[auto_1fr] px-4">
       <div className="m-auto w-full max-w-sm">
         <div className="text-center">
           <h1 className="font-serif text-4xl font-medium">Join Project</h1>

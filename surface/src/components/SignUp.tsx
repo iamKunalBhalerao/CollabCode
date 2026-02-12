@@ -11,8 +11,12 @@ import { Label } from "@/components/ui/label";
 import { ChangeEvent, useState } from "react";
 import { SignUpFormData } from "@/types/types";
 import { Button } from "@/components/ui/button";
+import { useAuthStore } from "@/store/auth.store";
 
 export default function SignUp() {
+
+  const login = useAuthStore((state) => state.login)
+
   const router = useRouter();
   const [formData, setFormData] = useState<SignUpFormData>({
     name: "",
@@ -35,7 +39,7 @@ export default function SignUp() {
         throw new Error(data.message || "Failed to Singing Up!");
       }
 
-      // login(data);
+      login(data);
 
       setLoading(false);
       router.push("/");

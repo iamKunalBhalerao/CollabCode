@@ -7,8 +7,7 @@ export const createProject = async (
 ) => {
   return prisma.project.create({
     data: {
-      title: data.title,
-      description: data.description,
+      name: data.name,
       ownerId: ownerId,
     },
   });
@@ -34,8 +33,7 @@ export const updateProject = async (
       ownerId: ownerId,
     },
     data: {
-      title: data.title,
-      description: data.description,
+      name: data.name,
     },
   });
 };

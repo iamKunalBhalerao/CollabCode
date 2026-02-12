@@ -27,9 +27,8 @@
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.3.0",
-    "@prisma/client": "^7.3.0",
+    "@prisma/client": "^7.4.0",
     "bcrypt": "^6.0.0",
-    "prisma": "^7.3.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.2.3",
@@ -37,6 +36,7 @@
     "jsonwebtoken": "^9.0.3",
     "lib0": "^0.2.117",
     "pg": "^8.18.0",
+    "prisma": "^7.4.0",
     "ws": "^8.19.0",
     "y-protocols": "^1.0.7",
     "yjs": "^13.6.29",

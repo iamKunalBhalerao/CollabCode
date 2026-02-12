@@ -12,10 +12,7 @@ export const signInZodSchema = z.object({
 });
 
 export const createProjectZodSchema = z.object({
-  title: z.string().min(3, "Title must be bigger than 3 letters!"),
-  description: z
-    .string()
-    .min(10, "Description must be bigger than 10 letters!"),
+  name: z.string().min(3, "Title must be bigger than 3 letters!"),
 });
 
 export const snapShotZodSchema = z.object({

@@ -9,7 +9,7 @@ export const authMiddleware = async (
   next: NextFunction,
 ) => {
   try {
-    const token = req.cookies?.accessToken || req.cookies?.accessToken;
+    const token = req.cookies?.accessToken || req.headers?.authorization?.split(" ")[1];
     if (!token) {
       return next(new UnauthorizedError("Unauthorized: No Token provided!"));
     }

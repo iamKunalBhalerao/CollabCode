@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
-import { Logo } from "@/components/logo";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { ThemeButton } from "./ThemeButton";
+import { useAuthStore } from "@/store/auth.store";
+import ProfileDropDown from "./ProfileDropdown";
 
 const menuItems = [
   { name: "Home", href: "#home" },
@@ -15,6 +16,7 @@ const menuItems = [
 ];
 
 export const HeroHeader = () => {
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const [menuState, setMenuState] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
 
@@ -38,13 +40,13 @@ export const HeroHeader = () => {
         <div className="mx-auto max-w-5xl px-6">
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-6 lg:gap-0">
             <div className="flex w-full justify-between gap-6 lg:w-auto">
-              <Link
-                href="/"
-                aria-label="home"
-                className="flex items-center space-x-2"
-              >
-                <Logo />
-              </Link>
+            <Link
+              href="/"
+              className="text-xl text-shadow-white text-shadow-lg/30 font-semibold text-foreground"
+            >
+              <span className="text-2xl text-primary">C</span>all
+              <span className="text-2xl text-primary">C</span>ode
+            </Link>
 
               <button
                 onClick={() => setMenuState(!menuState)}
@@ -87,36 +89,41 @@ export const HeroHeader = () => {
                   <ThemeButton />
                 </ul>
               </div>
-              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                <Button
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className={cn(isScrolled && "lg:hidden")}
-                >
-                  <Link href="/auth/signin">
-                    <span>Sign In</span>
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="sm"
-                  className={cn(isScrolled && "lg:hidden")}
-                >
-                  <Link href="/auth/signup">
-                    <span>Sign Up</span>
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="sm"
-                  className={cn(isScrolled ? "lg:inline-flex" : "hidden")}
-                >
-                  <Link href="/auth/signup">
-                    <span>Get Started</span>
-                  </Link>
-                </Button>
-              </div>
+
+              {isAuthenticated ? (
+                <ProfileDropDown />
+              ) : (
+                <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className={cn(isScrolled && "lg:hidden")}
+                  >
+                    <Link href="/auth/signin">
+                      <span>Sign In</span>
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="sm"
+                    className={cn(isScrolled && "lg:hidden")}
+                  >
+                    <Link href="/auth/signup">
+                      <span>Sign Up</span>
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="sm"
+                    className={cn(isScrolled ? "lg:inline-flex" : "hidden")}
+                  >
+                    <Link href="/auth/signup">
+                      <span>Get Started</span>
+                    </Link>
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>

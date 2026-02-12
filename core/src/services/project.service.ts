@@ -19,9 +19,9 @@ export const createProjectService = async (
 ) => {
   const parsedData = createProjectZodSchema.safeParse(data);
   if (!parsedData.success) throw new BadRequestError("Invalid Credentials!");
-  const { title, description } = parsedData.data;
+  const { name } = parsedData.data;
 
-  const project = await createProject({ title, description }, ownerId);
+  const project = await createProject({ name }, ownerId);
   if (!project) throw new BadRequestError("Failed to create project!");
 
   const projectId = project.id as string;
@@ -46,13 +46,9 @@ export const updateProjectService = async (
   if (!parsedData.success) {
     throw new BadRequestError("Invalid Credentials!");
   }
-  const { title, description } = parsedData.data;
+  const { name } = parsedData.data;
 
-  const project = await updateProject(
-    projectId,
-    { title, description },
-    ownerId,
-  );
+  const project = await updateProject(projectId, { name }, ownerId);
   if (!project) throw new BadRequestError("Failed to update project!");
 
   return project;
