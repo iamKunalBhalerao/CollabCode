@@ -34,8 +34,10 @@ export default function CreateProject() {
         throw new Error(data.message || "Failed to create project!");
       }
 
+      console.log(data);
+
       setLoading(false);
-      router.push(`/playground/${data.name}`);
+      router.push(`/playground/${data.project.id}`);
       router.refresh();
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {

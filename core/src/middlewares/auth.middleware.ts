@@ -9,9 +9,9 @@ export const authMiddleware = async (
   next: NextFunction,
 ) => {
   try {
-    const token = req.cookies?.accessToken || req.headers?.authorization?.split(" ")[1];
+    const token = req.cookies?.accessToken;
     if (!token) {
-      return next(new UnauthorizedError("Unauthorized: No Token provided!"));
+      return next(new UnauthorizedError("Unauthorized: No Token provided! Auth"));
     }
 
     const decoded = await verifyToken(token);

@@ -1,5 +1,5 @@
 import express, { type Express, type Request, type Response } from "express";
-import CookieParser from "cookie-parser";
+import cookieParser from "cookie-parser";
 import cors from "cors";
 import { globalErrorHandler } from "./middlewares/globalErrorHandler.middleware";
 
@@ -8,12 +8,12 @@ const app: Express = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://callcode.vercel.app"],
+    origin: `${process.env.FRONTEND_URL}`,
     credentials: true,
   }),
 );
 app.use(express.urlencoded({ extended: true }));
-app.use(CookieParser());
+app.use(cookieParser());
 
 app.get("/", (_req: Request, res: Response) => {
   res.send("CollabCoder API is running");

@@ -11,7 +11,7 @@ export const generateAccessToken = ({ id, email }: TokenPayload) => {
       },
       process.env.JWT_SECRET!,
       {
-        expiresIn: "15m",
+        expiresIn: "7d",
       },
     );
   } catch (error) {
@@ -28,7 +28,7 @@ export const generateRefreshToken = ({ id, email }: TokenPayload) => {
       },
       process.env.JWT_SECRET!,
       {
-        expiresIn: "7d",
+        expiresIn: "30d",
       },
     );
   } catch (error) {

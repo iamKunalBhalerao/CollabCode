@@ -18,7 +18,7 @@ export const signUpService = async (data: SignUp) => {
     throw new BadRequestError("Invalid Credentials!");
   }
   const { name, email, password } = parsedData.data;
-
+  
   const isUserExists = await findUserByEmail(email);
   if (isUserExists) {
     throw new BadRequestError("User with this email is already exists!");
